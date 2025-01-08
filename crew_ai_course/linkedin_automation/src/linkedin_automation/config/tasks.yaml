@@ -1,0 +1,31 @@
+scrape_linkedin_task:
+  description: >
+    Scrape and extract relevant data about crowdfunding trends from LinkedIn.
+    Focus on identifying trending topics, successful campaigns, and community insights.
+  expected_output: >
+    Scraped LinkedIn data, including campaign names, funding amounts, descriptions, 
+    and relevant keywords or hashtags.
+  agent: linkedin_scraper
+
+trends_writer_task:
+  description: >
+    Summarize the scraped data into key crowdfunding trends and actionable insights.
+    Highlight trending topics, successful strategies, and key takeaways.
+  expected_output: >
+    A structured summary of crowdfunding trends, including:
+    - Top trending topics
+    - Successful campaign strategies
+    - Key insights for stakeholders
+  agent: trends_writer
+
+file_write_task:
+  description: >
+    Save the summarized crowdfunding trends into a well-organized text file.
+    Ensure the file is formatted for easy sharing and reference.
+  expected_output: >
+    A text file named "crowdfunding_trends_summary.md" with:
+    - Headings for each section
+    - Bullet points for key insights
+    - A structured and clear layout
+  agent: file_writer
+
