@@ -1,19 +1,63 @@
-pdf_rag_task:
+research_task:
   description: >
-    Answer the question based on the PDF.
-    The rag agent will search through the PDF and return the most relevant information.
-    Your final answer MUST be clear and accurate, abse don the content of the PDF.
-
-    Here is the question: {input}
+    Research successful crowdfunding campaigns similar to the user's project.
+    
+    Project Details:
+    - Project Type: {project_type}
+    - Target Amount: {target_amount}
+    - Target Audience: {target_audience}
+    
+    Analyze the PDF to find:
+    1. Similar successful campaigns
+    2. Best practices for this type of project
+    3. Target audience behavior patterns
+    4. Optimal funding goals and reward structures
   expected_output: >
-    Provide clear and accurate answer based on the PDF content.
-  agent: pdf_rag_agent
+    A comprehensive research report including:
+    - Success patterns for similar campaigns
+    - Target audience insights
+    - Recommended funding structures
+    - Key success factors
+  agent: market_researcher
 
-pdf_summary_task:
+strategy_task:
   description: >
-    Review the context you got and expand each topic into a full section for a report.
-    Make sure the report is detailed and contains any and all relevant information.
+    Develop a strategic campaign plan based on the research findings.
+    
+    Consider:
+    - Project Type: {project_type}
+    - Target Amount: {target_amount}
+    - Target Audience: {target_audience}
+    - Desired Tone: {tone}
+    
+    Create a strategy that maximizes campaign success potential.
   expected_output: >
-    A fully fledge reports with the mains topics, each with a full section of information.
-    Formatted as markdown without '```'
-  agent: pdf_summary_agent
+    A detailed strategy including:
+    - Campaign positioning
+    - Reward tier structure
+    - Marketing approach
+    - Timeline recommendations
+    - Key messaging points
+  agent: campaign_strategist
+
+content_task:
+  description: >
+    Create the crowdfunding campaign content using the research and strategy.
+    
+    Project Details:
+    - Project: {project_type}
+    - Goal: {target_amount}
+    - Audience: {target_audience}
+    - Tone: {tone}
+    
+    Write compelling content that will resonate with the target audience
+    and drive contributions.
+  expected_output: >
+    A complete campaign post including:
+    - Attention-grabbing headline
+    - Compelling project story
+    - Clear benefits and features
+    - Reward tiers description
+    - Strong call to action
+    Formatted in markdown without code blocks
+  agent: content_creator
